@@ -1,4 +1,4 @@
-module veryrealai.com/dtm-labs/rockscache
+module github.com/Bit-Engine-Singapore/rockscache
 
 go 1.18
 
