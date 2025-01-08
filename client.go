@@ -161,7 +161,12 @@ func (c *Client) luaGet(ctx context.Context, key string, owner string) ([]interf
 		return nil, errors.New("result is nil")
 	}
 
-	return res.([]interface{}), nil
+	switch res.(type) {
+	case []interface{}:
+		return res.([]interface{}), nil
+	default:
+		return nil, errors.New("luaGet fail")
+	}
 }
 
 func (c *Client) luaSet(ctx context.Context, key string, value string, expire int, owner string) error {
